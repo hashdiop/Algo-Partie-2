@@ -10,13 +10,15 @@ BEGIN
             IF (tab2[j] != tab1[i]) THEN
                 FOR k FROM 0 TO liste_addition.length-1 STEP 1  DO
                     IF (tab2[j] !=liste_addition[k]) THEN
-                        liste_addition.append(tab2[j])
+                        liste_addition.append(tab2[j]);
                     END_IF
                 END_FOR
             END_IF
             j := j+1 ; // mise à jour de l'index
         END_WHILE
-
+        FOR k FROM 0 TO liste_addition.length-1 STEP 1  DO
+            resultat+=liste_addition[k];
+        END_FOR
         IF (j = tab.length) THEN // nous avons atteint la fin du tableau sans trouver l'élément
             pos := -1 ; // -1 signifie que nous n'avons pas trouvé l'élément.
         END_IF
