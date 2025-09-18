@@ -28,10 +28,21 @@ END
 
 
 ALGORITHM PS_nvect 
+    // Procedure de calcul do produit scalaire
+    PROCEDURE Produit_en_point(v1:ARRAY_OF FLOAT,v2:ARRAY_OF FLOAT)
+    VAR
+        ps : FLOAT :=0;
+        i :INTEGER;
+    BEGIN
+        FOR i FROM 0 TO v1.length-1 STEP 1  DO
+            ps+=v1[i]*v2[i];
+        END_FOR
+    END
 VAR
     n,i,j :INTEGER;
-    vecteur: ARRAY_OF FLOAT[2];
-    vecteurs: ARRAY_OF vecteur;
+    //ensemble des vecteurs 
+    vecteurs: ARRAY_OF FLOAT[n][2];
+    produit_scalaire: FLOAT;
 BEGIN
 // Parcourir l'ensemble des vecteurs
     FOR i FROM 0 TO n-1 STEP 1  DO
@@ -41,21 +52,13 @@ BEGIN
             ELSE
                 // Tester l'orthogonalite
                 IF (Produit_en_point(vecteurs[i],vecteurs[j])=0) THEN
-                    Write("Les vecteurs",vecteurs[i],"et",vecteurs[j],"sont orthogonales");
+                    Write("Les vecteurs",vecteurs[i],"et",vecteurs[i+1],"sont orthogonales");
                 ELSE
-                    Write("Les vecteurs",vecteurs[i],"et",vecteurs[j],"ne sont pas orthogonales")
+                    Write("Les vecteurs",vecteurs[i],"et",vecteurs[i+1],"ne sont pas orthogonales")
                 END_IF
             END_IF
         END_FOR
     END_FOR
-    PROCEDURE Produit_en_point(ps)
-    VAR
-        v1 , v2 : ARRAY_OF FLOAT[2];
-        ps : FLOAT :=0;
-        i :INTEGER;
-    BEGIN
-        FOR i FROM 0 TO v1.length-1 STEP 1  DO
-            ps+=v1[i]*v2[i];
-        END_FOR
-    END
 END
+
+    
