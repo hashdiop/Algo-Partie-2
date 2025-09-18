@@ -27,7 +27,7 @@ END
 
 
 
-ALGORITHM PS_nvect
+ALGORITHM PS_nvect 
 VAR
     n,i,j :INTEGER;
     vecteur: ARRAY_OF FLOAT[2];
@@ -40,7 +40,7 @@ BEGIN
                 BREAK;
             ELSE
                 // Tester l'orthogonalite
-                IF (Produit_en_point(vecteur[i],vecteur[j])=0) THEN
+                IF (Produit_en_point(vecteurs[i],vecteurs[j])=0) THEN
                     Write("Les vecteurs",vecteurs[i],"et",vecteurs[j],"sont orthogonales");
                 ELSE
                     Write("Les vecteurs",vecteurs[i],"et",vecteurs[j],"ne sont pas orthogonales")
